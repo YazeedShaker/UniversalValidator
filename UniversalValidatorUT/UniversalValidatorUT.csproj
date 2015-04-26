@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="NumbersValidationTests.cs" />
+    <Compile Include="PhonesValidationsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
