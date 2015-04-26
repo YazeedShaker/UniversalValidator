@@ -54,9 +54,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\UniversalValidator\UniversalValidator.csproj">
       <Project>{58d88336-cfb8-4890-8e31-1f987b361a60}</Project>
       <Name>UniversalValidator</Name>
