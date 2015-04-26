@@ -7,7 +7,7 @@ namespace UniversalValidatorUT
     public class NumbersValidationTests
     {
         [TestMethod]
-        public void ValidateIfNumberIsNumberFail()
+        public void ValidateIfInputIsNumbericFail()
         {
             string input = "A";
             bool pass = UniversalValidator.Numbers.IsNumeric(input);
