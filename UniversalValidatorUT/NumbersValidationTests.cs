@@ -13,5 +13,13 @@ namespace UniversalValidatorUT
             bool pass = UniversalValidator.Numbers.IsNumeric(input);
             Assert.IsFalse(pass);
         }
+
+        [TestMethod]
+        public void ValidateIfInputIsNumericSucceed()
+        {
+            string input = "-1.27982E+15";
+            bool pass = UniversalValidator.Numbers.IsNumeric(input);
+            Assert.IsTrue(pass);
+        }
     }
 }
