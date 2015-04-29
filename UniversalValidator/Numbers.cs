@@ -13,31 +13,16 @@ namespace UniversalValidator
 
         public static bool IsNumeric(string input)
         {
-            int i;
             double d;
-            float f;
             decimal de;
-            long l;
             BigInteger big = new BigInteger();
             bool isNumeric = true;
-   
-            if (int.TryParse(input, out i))
+
+            if (decimal.TryParse(input, out de))
             {
                 return isNumeric;
             }
             else if (double.TryParse(input, out d))
-            {
-                return isNumeric;
-            }
-            else if (float.TryParse(input, out f))
-            {
-                return isNumeric;
-            }
-            else if (decimal.TryParse(input, out de))
-            {
-                return isNumeric;
-            }
-            else if (long.TryParse(input, out l))
             {
                 return isNumeric;
             }
