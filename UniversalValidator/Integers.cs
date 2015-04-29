@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace UniversalValidator
 {
-    public static class validateInt
+    public static class Integers
     {
         public static bool isInt(string input)
         {
