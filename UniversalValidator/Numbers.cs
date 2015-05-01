@@ -75,8 +75,9 @@ namespace UniversalValidator
             bool b = Decimal.TryParse(input, out d);
             if (isBigInteger(input))
                 return false;
-            else
+            else if(b)
                 return true;
+            return false;
         }
     }
 }

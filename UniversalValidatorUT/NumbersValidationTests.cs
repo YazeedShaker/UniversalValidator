@@ -49,7 +49,7 @@ namespace UniversalValidatorUT
         [TestMethod]
         public void ValidateIfInputIsDecimalSucceed()
         {
-            string input = "8.08";
+            string input = "80.0";
             bool pass = UniversalValidator.Numbers.isDecimal(input);
             Assert.IsTrue(pass);
         }
