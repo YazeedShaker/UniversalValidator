@@ -6,6 +6,7 @@ namespace UniversalValidatorUT
     [TestClass]
     public class NumbersValidationTests
     {
+        //TESTS FOR ALL NUMERIC
         [TestMethod]
         public void ValidateIfInputIsNumbericFail()
         {
@@ -22,35 +23,74 @@ namespace UniversalValidatorUT
             Assert.IsTrue(pass);
         }
 
+
+        //TESTS FOR ALL INTEGERS
+        [TestMethod]
+        public void ValidateIfInputIsIntegerFail()
+        {
+            string input = "A21";
+            bool pass = UniversalValidator.Numbers.IsInt(input);
+            Assert.IsFalse(pass);
+        }
+
         [TestMethod]
         public void ValidateIfInputIsIntegerSucceed()
         {
             string input = "2,147,483,647";
-            bool pass = UniversalValidator.Numbers.isInt(input);
+            bool pass = UniversalValidator.Numbers.IsInt(input);
             Assert.IsTrue(pass);
+        }
+
+
+        //TESTS FOR ALL FLOATS
+        [TestMethod]
+        public void ValidateIfInputIsFloatFail()
+        {
+            string input = "0A";
+            bool pass = UniversalValidator.Numbers.IsFloat(input);
+            Assert.IsFalse(pass);
         }
 
         [TestMethod]
         public void ValidateIfInputIsFloatSucceed()
         {
             string input = "1.063E-02";
-            bool pass = UniversalValidator.Numbers.isFloat(input);
+            bool pass = UniversalValidator.Numbers.IsFloat(input);
             Assert.IsTrue(pass);
+        }
+
+
+        //TESTS FOR ALL BIGINTEGERS
+        [TestMethod]
+        public void ValidateIfInputIsBigIntegerFail()
+        {
+            string input = "A+5";
+            bool pass = UniversalValidator.Numbers.IsBigInteger(input);
+            Assert.IsFalse(pass);
         }
 
         [TestMethod]
         public void ValidateIfInputIsBigIntegerSucceed()
         {
             string input = "9223372036854775808";
-            bool pass = UniversalValidator.Numbers.isBigInteger(input);
+            bool pass = UniversalValidator.Numbers.IsBigInteger(input);
             Assert.IsTrue(pass);
         }
 
+
+        //TESTS FOR ALL DECIMALS
+        [TestMethod]
+        public void ValidateIfInputIsDecimalFail()
+        {
+            string input = "ABv3";
+            bool pass = UniversalValidator.Numbers.IsDecimal(input);
+            Assert.IsFalse(pass);
+        }
         [TestMethod]
         public void ValidateIfInputIsDecimalSucceed()
         {
             string input = "80.0";
-            bool pass = UniversalValidator.Numbers.isDecimal(input);
+            bool pass = UniversalValidator.Numbers.IsDecimal(input);
             Assert.IsTrue(pass);
         }
     }

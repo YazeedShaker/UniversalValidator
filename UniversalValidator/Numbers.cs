@@ -36,7 +36,7 @@ namespace UniversalValidator
         }
 
         //For all integer inputs
-        public static bool isInt(string input)
+        public static bool IsInt(string input)
         {
             int i;
             bool b = Int32.TryParse(input, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out i);
@@ -48,7 +48,7 @@ namespace UniversalValidator
         }
 
         //For all Float inputs
-        public static bool isFloat(string input)
+        public static bool IsFloat(string input)
         {
             float f;
             bool b = float.TryParse(input, out f);
@@ -59,7 +59,7 @@ namespace UniversalValidator
         }
 
         //For all BigInteger inputs
-        public static bool isBigInteger(string input)
+        public static bool IsBigInteger(string input)
         {
             BigInteger big = new BigInteger();
             bool b = BigInteger.TryParse(input, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out big);
@@ -69,11 +69,11 @@ namespace UniversalValidator
         }
 
         //For all Decimal inputs
-        public static bool isDecimal(string input)
+        public static bool IsDecimal(string input)
         {
             decimal d;
-            bool b = Decimal.TryParse(input, out d);
-            if (isBigInteger(input))
+            bool b = Decimal.TryParse(input, out d); 
+            if (IsBigInteger(input))
                 return false;
             else if(b)
                 return true;
