@@ -26,7 +26,7 @@ namespace UniversalValidatorUT
         public void ValidateIfInputIsIntegerSucceed()
         {
             string input = "2,147,483,647";
-            bool pass = UniversalValidator.Integers.isInt(input);
+            bool pass = UniversalValidator.Numbers.isInt(input);
             Assert.IsTrue(pass);
         }
 
@@ -34,7 +34,7 @@ namespace UniversalValidatorUT
         public void ValidateIfInputIsFloatSucceed()
         {
             string input = "1.063E-02";
-            bool pass = UniversalValidator.Floats.isFloat(input);
+            bool pass = UniversalValidator.Numbers.isFloat(input);
             Assert.IsTrue(pass);
         }
     }
