@@ -19,11 +19,11 @@ namespace UniversalValidator
             BigInteger big = new BigInteger();
             bool isNumeric = true;
 
-            if (decimal.TryParse(input, out de))
+            if (Decimal.TryParse(input, out de))
             {
                 return isNumeric;
             }
-            else if (double.TryParse(input, out d))
+            else if (Double.TryParse(input, out d))
             {
                 return isNumeric;
             }
@@ -35,11 +35,11 @@ namespace UniversalValidator
             return false;
         }
 
-        //For all integers inputs
+        //For all integer inputs
         public static bool isInt(string input)
         {
             int i;
-            bool b = int.TryParse(input, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out i);
+            bool b = Int32.TryParse(input, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out i);
             if (b)
             {
                 return true;
@@ -56,6 +56,27 @@ namespace UniversalValidator
                 return true;
 
             return false;
+        }
+
+        //For all BigInteger inputs
+        public static bool isBigInteger(string input)
+        {
+            BigInteger big = new BigInteger();
+            bool b = BigInteger.TryParse(input, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out big);
+            if (b)
+                return true;
+            return false;
+        }
+
+        //For all Decimal inputs
+        public static bool isDecimal(string input)
+        {
+            decimal d;
+            bool b = Decimal.TryParse(input, out d);
+            if (isBigInteger(input))
+                return false;
+            else
+                return true;
         }
     }
 }

@@ -37,5 +37,21 @@ namespace UniversalValidatorUT
             bool pass = UniversalValidator.Numbers.isFloat(input);
             Assert.IsTrue(pass);
         }
+
+        [TestMethod]
+        public void ValidateIfInputIsBigIntegerSucceed()
+        {
+            string input = "9223372036854775808";
+            bool pass = UniversalValidator.Numbers.isBigInteger(input);
+            Assert.IsTrue(pass);
+        }
+
+        [TestMethod]
+        public void ValidateIfInputIsDecimalSucceed()
+        {
+            string input = "8.08";
+            bool pass = UniversalValidator.Numbers.isDecimal(input);
+            Assert.IsTrue(pass);
+        }
     }
 }
