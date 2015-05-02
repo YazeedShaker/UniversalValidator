@@ -62,5 +62,15 @@ namespace UniversalValidator
                 return true;
             return false;
         }
+
+        //For all infinty inputs
+        public static bool IsInfinity(string input)
+        {
+            double d;
+            Double.TryParse(input, out d);
+            if (Double.IsInfinity(d) || Double.IsNaN(d))
+                return true;
+            return false;
+        }
     }
 }

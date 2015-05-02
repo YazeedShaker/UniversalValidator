@@ -44,7 +44,7 @@ namespace UniversalValidatorUT
         [TestMethod]
         public void ValidateIfInputIsNumericCommaSucceed()
         {
-            string input = "112,345,3456";
+            string input = "11200000,34555,443456";
             bool pass = UniversalValidator.Numbers.IsNumeric(input);
             Assert.IsTrue(pass);
         }
@@ -102,11 +102,20 @@ namespace UniversalValidatorUT
             bool pass = UniversalValidator.Numbers.IsDecimal(input);
             Assert.IsFalse(pass);
         }
+
         [TestMethod]
         public void ValidateIfInputIsDecimalSucceed()
         {
             string input = "80.0";
             bool pass = UniversalValidator.Numbers.IsDecimal(input);
+            Assert.IsTrue(pass);
+        }
+
+        //TESTS FOR ALL INFINITE INPUTS
+        [TestMethod]
+        public void ValidateIfInputIsInfiniteSucceed() {
+            string input = "1.7976931348623157E+10309";
+            bool pass = UniversalValidator.Numbers.IsInfinity(input);
             Assert.IsTrue(pass);
         }
     }
