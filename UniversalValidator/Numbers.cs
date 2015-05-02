@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace UniversalValidator
 {
@@ -14,25 +15,7 @@ namespace UniversalValidator
         //For all numeric inputs
         public static bool IsNumeric(string input)
         {
-            double d;
-            decimal de;
-            BigInteger big = new BigInteger();
-            bool isNumeric = true;
-
-            if (Decimal.TryParse(input, out de))
-            {
-                return isNumeric;
-            }
-            else if (Double.TryParse(input, out d))
-            {
-                return isNumeric;
-            }
-            else if (BigInteger.TryParse(input, out big))
-            {
-                return isNumeric;
-            }
-
-            return false;
+            return Regex.IsMatch(input, @"^[+-]?\d+(\.)?(,\d+,)?\d+([eE][+-]?\d+)?$");
         }
 
         //For all integer inputs
