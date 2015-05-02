@@ -70,7 +70,14 @@ namespace UniversalValidator
             Double.TryParse(input, out d);
             if (Double.IsInfinity(d) || Double.IsNaN(d))
                 return true;
-            return Regex.IsMatch(input, @"(\d*/0|0/0)");
+            return Regex.IsMatch(input, @"^(\d*/0|0/0)$");
+            return false;
+        }
+
+        //For all Long inputs
+        public static bool IsLong(string input){
+            if (Regex.IsMatch(input, @"^[+-]?\d+(,\d+,)?\d+([eE][+-]?\d+)?$") || Regex.IsMatch(input, @"^(\d+|\d{1,3}(,\d{3})*)(\d+)?$"))
+                return true;
             return false;
         }
     }

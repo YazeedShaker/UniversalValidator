@@ -125,5 +125,21 @@ namespace UniversalValidatorUT
             bool pass = UniversalValidator.Numbers.IsInfinity(input);
             Assert.IsFalse(pass);
         }
+
+        //TESTS FOR ALL LONG INPUTS
+        [TestMethod]
+        public void ValidateIfInputIsLongSucceed() {
+            string input = "9,223,372,036,854,775,807";
+            bool pass = UniversalValidator.Numbers.IsLong(input);
+            Assert.IsTrue(pass);
+        }
+
+        [TestMethod]
+        public void ValidateIfInputIsLongFail()
+        {
+            string input = "429496.7296";
+            bool pass = UniversalValidator.Numbers.IsLong(input);
+            Assert.IsFalse(pass);
+        }
     }
 }
