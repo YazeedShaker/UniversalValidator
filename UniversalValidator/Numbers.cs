@@ -70,6 +70,7 @@ namespace UniversalValidator
             Double.TryParse(input, out d);
             if (Double.IsInfinity(d) || Double.IsNaN(d))
                 return true;
+            return Regex.IsMatch(input, @"(\d*/0|0/0)");
             return false;
         }
     }

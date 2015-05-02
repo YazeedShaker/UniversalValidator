@@ -114,9 +114,16 @@ namespace UniversalValidatorUT
         //TESTS FOR ALL INFINITE INPUTS
         [TestMethod]
         public void ValidateIfInputIsInfiniteSucceed() {
-            string input = "1.7976931348623157E+10309";
+            string input = "56978/0";
             bool pass = UniversalValidator.Numbers.IsInfinity(input);
             Assert.IsTrue(pass);
+        }
+
+        [TestMethod]
+        public void ValidateIfInputIsInfiniteFail() {
+            string input = "50/5";
+            bool pass = UniversalValidator.Numbers.IsInfinity(input);
+            Assert.IsFalse(pass);
         }
     }
 }
