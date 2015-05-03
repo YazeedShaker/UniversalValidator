@@ -15,7 +15,25 @@ namespace UniversalValidator
         //For all numeric inputs
         public static bool IsNumeric(string input)
         {
-            return Regex.IsMatch(input, @"^[+-]?\d+(\.)?(,\d+,)?\d+([eE][+-]?\d+)?$");
+            double d;
+            decimal de;
+            BigInteger big = new BigInteger();
+            bool isNumeric = true;
+
+            if (Decimal.TryParse(input, out de))
+            {
+                return isNumeric;
+            }
+            else if (Double.TryParse(input, out d))
+            {
+                return isNumeric;
+            }
+            else if (BigInteger.TryParse(input, out big))
+            {
+                return isNumeric;
+            }
+
+            return false;
         }
 
         //For all integer inputs
