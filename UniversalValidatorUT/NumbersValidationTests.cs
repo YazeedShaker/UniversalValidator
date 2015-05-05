@@ -44,7 +44,7 @@ namespace UniversalValidatorUT
         [TestMethod]
         public void ValidateIfInputIsNumericCommaSucceed()
         {
-            string input = "112,345,3456";
+            string input = "11200000,34555,4,43456";
             bool pass = UniversalValidator.Numbers.IsNumeric(input);
             Assert.IsTrue(pass);
         }
@@ -102,12 +102,47 @@ namespace UniversalValidatorUT
             bool pass = UniversalValidator.Numbers.IsDecimal(input);
             Assert.IsFalse(pass);
         }
+
         [TestMethod]
         public void ValidateIfInputIsDecimalSucceed()
         {
             string input = "80.0";
             bool pass = UniversalValidator.Numbers.IsDecimal(input);
             Assert.IsTrue(pass);
+        }
+
+        //TESTS FOR ALL INFINITE INPUTS
+        [TestMethod]
+        public void ValidateIfInputIsInfiniteSucceed() {
+            string input = "56978/0";
+            bool pass = UniversalValidator.Numbers.IsInfinity(input);
+            Assert.IsTrue(pass);
+        }
+
+        [TestMethod]
+        public void ValidateIfInputIsInfiniteFail() {
+            string input = "50/5";
+            bool pass = UniversalValidator.Numbers.IsInfinity(input);
+            Assert.IsFalse(pass);
+        }
+
+        //TESTS FOR ALL LONG INPUTS
+        [TestMethod]
+        public void ValidateIfInputIsLongSucceed() {
+            string input = "9,223,372,036,854,775,807";
+            //string input = "429496729555555556";
+            //string input = "125493E+125641";
+            bool pass = UniversalValidator.Numbers.IsLong(input);
+            Assert.IsTrue(pass);
+        }
+
+        [TestMethod]
+        public void ValidateIfInputIsLongFail()
+        {
+            //string input = "429496.7296";
+            string input = "A+5";
+            bool pass = UniversalValidator.Numbers.IsLong(input);
+            Assert.IsFalse(pass);
         }
     }
 }

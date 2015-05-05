@@ -15,25 +15,7 @@ namespace UniversalValidator
         //For all numeric inputs
         public static bool IsNumeric(string input)
         {
-            double d;
-            decimal de;
-            BigInteger big = new BigInteger();
-            bool isNumeric = true;
-
-            if (Decimal.TryParse(input, out de))
-            {
-                return isNumeric;
-            }
-            else if (Double.TryParse(input, out d))
-            {
-                return isNumeric;
-            }
-            else if (BigInteger.TryParse(input, out big))
-            {
-                return isNumeric;
-            }
-
-            return false;
+            return Regex.IsMatch(input, @"^[+-]?(\d+|(\d+,)+)(\.)?\d+?([Ee][+-]?\d+)?$");
         }
 
         //For all integer inputs
@@ -79,6 +61,22 @@ namespace UniversalValidator
             else if(b)
                 return true;
             return false;
+        }
+
+        //For all infinty inputs
+        public static bool IsInfinity(string input)
+        {
+            double d;
+            Double.TryParse(input, out d);
+            if (Double.IsInfinity(d) || Double.IsNaN(d))
+                return true;
+            return Regex.IsMatch(input, @"^(\d*/0|0/0)$");
+            return false;
+        }
+
+        //For all Long inputs
+        public static bool IsLong(string input){
+            return Regex.IsMatch(input, @"^[+-]?(\d+|(\d+,)+)\d+?([Ee][+-]?\d+)?$");
         }
     }
 }
