@@ -22,33 +22,21 @@ namespace UniversalValidator
         public static bool IsInt(string input)
         {
             int i;
-            bool b = Int32.TryParse(input, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out i);
-            if (b)
-            {
-                return true;
-            }
-            return false;
+            return Int32.TryParse(input, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out i);
         }
 
         //For all Float inputs
         public static bool IsFloat(string input)
         {
             float f;
-            bool b = float.TryParse(input, out f);
-            if (b)
-                return true;
-
-            return false;
+            return float.TryParse(input, out f);
         }
 
         //For all BigInteger inputs
         public static bool IsBigInteger(string input)
         {
             BigInteger big = new BigInteger();
-            bool b = BigInteger.TryParse(input, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out big);
-            if (b)
-                return true;
-            return false;
+            return BigInteger.TryParse(input, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out big);
         }
 
         //For all Decimal inputs
@@ -77,6 +65,13 @@ namespace UniversalValidator
         //For all Long inputs
         public static bool IsLong(string input){
             return Regex.IsMatch(input, @"^[+-]?(\d+|(\d+,)+)\d+?([Ee][+-]?\d+)?$");
+        }
+
+        //For all Short inputs
+        public static bool IsShort(string input)
+        {
+            short s;
+            return short.TryParse(input,NumberStyles.AllowThousands,CultureInfo.InvariantCulture, out s);
         }
     }
 }

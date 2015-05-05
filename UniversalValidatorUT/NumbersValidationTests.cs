@@ -144,5 +144,25 @@ namespace UniversalValidatorUT
             bool pass = UniversalValidator.Numbers.IsLong(input);
             Assert.IsFalse(pass);
         }
+
+        //TESTS FOE ALL SHORT INPUTS
+        [TestMethod]
+        public void ValidateIfInputIsShortSucceed()
+        {
+            string input = "32,767";
+            //string input = "20150";
+            bool pass = UniversalValidator.Numbers.IsShort(input);
+            Assert.IsTrue(pass);
+        }
+
+        [TestMethod]
+        public void ValidateIfInputIsShortFail()
+        {
+            //string input = "32.767";
+            //string input = "aA";
+            string input = "429496";
+            bool pass = UniversalValidator.Numbers.IsShort(input);
+            Assert.IsFalse(pass);
+        }
     }
 }
